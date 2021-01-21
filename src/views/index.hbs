@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>My Website</title>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        table-layout: fixed;
+        width: 80%;
+      }
+    </style>
+  </head>
+  <body>
+    <p><a href="/">Back to the start</a></p>
+
+    <table>
+      <tr>
+        <td></td>
+        <td>
+          {{#if sentence.top.data.sentence}}       
+            <p><a href="/top">{{sentence.top.data.sentence}}</a></p>
+          {{else}}
+            <form action="/top" method="post">
+              <input type="text" name="sentence"><br>
+              <input type="submit" value="Submit">
+            </form> 
+          {{/if}}
+          
+        </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>
+           {{#if sentence.left.data.sentence}}
+              <p><a href="/left">{{sentence.left.data.sentence}}</a></p>
+           {{else}}
+              <form action="/left" method="post">
+                <input type="text" name="sentence" pos="left"><br>
+                <input type="submit" value="Submit">
+              </form>
+           {{/if}}
+        </td>
+        <td>{{sentence.data.sentence}}</td>
+        <td>
+          {{#if sentence.right.data.sentence}}
+              <p><a href="/right">{{sentence.right.data.sentence}}</a></p>
+           {{else}}
+              <form action="/right" method="post">
+                <input type="text" name="sentence" pos="right"><br>
+                <input type="submit" value="Submit">
+              </form>
+           {{/if}}
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          {{#if sentence.bottom.data.sentence}}
+              <p><a href="/bottom">{{sentence.bottom.data.sentence}}</a></p>
+           {{else}}
+              <form action="/bottom" method="post">
+                <input type="text" name="sentence" pos="bottom"><br>
+                <input type="submit" value="Submit">
+              </form>
+           {{/if}}
+        </td>
+        <td></td>
+      </tr>
+    </table>
+
+  </body>
+</html>
